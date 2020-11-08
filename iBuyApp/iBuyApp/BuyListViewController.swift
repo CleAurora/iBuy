@@ -10,18 +10,65 @@ import UIKit
 class BuyListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var productSearchBar: UISearchBar!
+
 
     var arrayProducts = [Product]()
     var arrayCompleted = [Product]()
     var arrayOpen = [Product]()
-
+    var arrayFiltered = [Product]()
+    
     var index: Int?
+
+    @IBAction func AddActionTapped(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: "Criar", message: "Digite o nome do item", preferredStyle: .alert)
+        var productTextField: UITextField?
+        let saveAction = UIAlertAction(title: "Salvar", style: .default, handler: { (action) in
+            if let textField = productTextField, let text = textField.text, textField.hasText {
+                self.arrayProducts.append(Product(name: text, isCompleted: false))
+                self.loadFilters()
+            }
+        })
+
+        alertController.addTextField { (textField) in
+            productTextField = textField
+            textField.placeholder = "Ex: Maçã"
+        }
+
+        alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alertController.addAction(saveAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
+
+    func edit(product: Product) {
+        let alertController = UIAlertController(title: "Criar", message: "Digite o nome do item", preferredStyle: .alert)
+        var productTextField: UITextField?
+        let saveAction = UIAlertAction(title: "Salvar", style: .default, handler: { (action) in
+            if let textField = productTextField, let text = textField.text, textField.hasText {
+                product.name = text
+                self.loadFilters()
+            }
+        })
+
+        alertController.addTextField { (textField) in
+            productTextField = textField
+            textField.text = product.name
+            textField.placeholder = "Ex: Maçã"
+        }
+
+        alertController.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+        alertController.addAction(saveAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
+        productSearchBar.delegate = self
 
         arrayProducts.append(Product(name: "Maçã", isCompleted: false))
         arrayProducts.append(Product(name: "Pera", isCompleted: false))
@@ -42,39 +89,67 @@ class BuyListViewController: UIViewController {
             markOption = "Marcar como aberto"
         }
 
-        alert.addAction(UIAlertAction(title: markOption, style: .default) { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: markOption, style: .default) { (_) in
             product.isCompleted = !product.isCompleted
             self.loadFilters()
             self.tableView.reloadData()
         })
 
-        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel) { (UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel))
 
-        })
-        alert.addAction(UIAlertAction(title: "Excluir", style: .destructive) { (UIAlertAction) in
-        //criar modal para confirmar exclusão do item
-        })
-
-        alert.addAction(UIAlertAction(title: "Editar", style: .default) { (UIAlertAction) in
-
+        alert.addAction(UIAlertAction(title: "Excluir", style: .destructive) { (_) in
+            self.delete(product: product)
         })
 
-
+        alert.addAction(UIAlertAction(title: "Editar", style: .default) { (_) in
+            self.edit(product: product)
+        })
 
         self.present(alert, animated: true){}
     }
 
+    func delete(product: Product) {
+        let alertController = UIAlertController(
+            title: "Atenção", message: "Tem certeza de que deseja apagar este item?",
+            preferredStyle: .alert
+        )
+
+        alertController.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { (_) in
+            self.arrayProducts.removeAll { (currentProduct) -> Bool in
+                product == currentProduct
+            }
+            self.loadFilters()
+        }))
+
+        alertController.addAction(UIAlertAction(title: "Não", style: .default))
+
+        present(alertController, animated: true, completion: nil)
+    }
+
     func loadFilters(){
+        filterProducts(searchTyping: productSearchBar.text ?? "")
+    }
+
+    func filterProducts(searchTyping: String){
+        arrayFiltered = arrayProducts
         arrayOpen = []
         arrayCompleted = []
-        arrayCompleted = arrayProducts.filter { (product) -> Bool in
-            return product.isCompleted == true
+
+        if !searchTyping.isEmpty {
+            arrayFiltered = arrayProducts.filter {(product) -> Bool in
+                return product.name.lowercased().contains(searchTyping.lowercased())
+            }
         }
 
-        arrayOpen = arrayProducts.filter { (product) -> Bool in
-            return product.isCompleted == false
-        }
+        arrayOpen = arrayFiltered.filter({ (product) -> Bool in
+            product.isCompleted == false
+        })
 
+        arrayCompleted = arrayFiltered.filter({ (product) -> Bool in
+            product.isCompleted == true
+        })
+
+        tableView.reloadData()
     }
 }
 
@@ -85,20 +160,20 @@ extension BuyListViewController: UITableViewDelegate{
         }else {
             openOptions(product: arrayCompleted[indexPath.row])
         }
-
-        //index = indexPath.row
-        //openOptions(product: array[])
-        //let cell = tableView.cellForRow(at: indexPath) as? ListViewCell
-        //print(cell?.nameLabel.text)
-        //print(indexPath.section)
     }
-
 }
 
-extension BuyListViewController: UITableViewDataSource{
+extension BuyListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterProducts(searchTyping: searchText)
+    }
+}
+
+extension BuyListViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return arrayOpen.count

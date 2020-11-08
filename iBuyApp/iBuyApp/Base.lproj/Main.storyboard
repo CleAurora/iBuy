@@ -11,33 +11,33 @@
         <!--Configurações-->
         <scene sceneID="ADH-2B-5yq">
             <objects>
-                <viewController id="E9i-bT-bYf" sceneMemberID="viewController">
+                <viewController id="E9i-bT-bYf" customClass="ConfigurationViewController" customModule="iBuyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mqi-VW-Zek">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="iI9-m1-l7F"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Configurações" image="gearshape" catalog="system" id="wql-uN-H38"/>
+                    <navigationItem key="navigationItem" title="Configurações" id="wQ7-Pg-dp8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="epZ-51-ipP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-207" y="167"/>
+            <point key="canvasLocation" x="699" y="167"/>
         </scene>
-        <!--Lista de Compras-->
+        <!--iBuy-->
         <scene sceneID="NVm-AY-1Mc">
             <objects>
-                <viewController id="VCk-vE-Knl" customClass="BuyListViewController" customModule="iBuyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="iBuy" id="VCk-vE-Knl" customClass="BuyListViewController" customModule="iBuyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fA2-1F-UBK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" placeholder="Pesquisar" translatesAutoresizingMaskIntoConstraints="NO" id="sor-Ft-eVN">
-                                <rect key="frame" x="16" y="69" width="382" height="56"/>
+                                <rect key="frame" x="16" y="88" width="382" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-BV-sxN">
-                                <rect key="frame" x="0.0" y="125" width="414" height="688"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListViewCell" rowHeight="197" id="P87-Sj-3iK" customClass="ListViewCell" customModule="iBuyApp" customModuleProvider="target">
@@ -67,17 +67,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iBuy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5M-nB-BBX">
-                                <rect key="frame" x="16" y="32" width="382" height="21"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ecm-Tr-sLF">
-                                <rect key="frame" x="383" y="31" width="18" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="plus" catalog="system"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qRY-iC-EpN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -85,23 +74,27 @@
                             <constraint firstItem="qRY-iC-EpN" firstAttribute="trailing" secondItem="ljF-BV-sxN" secondAttribute="trailing" id="3Xt-xa-uXO"/>
                             <constraint firstItem="ljF-BV-sxN" firstAttribute="leading" secondItem="qRY-iC-EpN" secondAttribute="leading" id="Afa-Wa-Vxb"/>
                             <constraint firstItem="sor-Ft-eVN" firstAttribute="leading" secondItem="qRY-iC-EpN" secondAttribute="leading" constant="16" id="KfP-z4-mfO"/>
-                            <constraint firstItem="sor-Ft-eVN" firstAttribute="top" secondItem="T5M-nB-BBX" secondAttribute="bottom" constant="16" id="SAC-vK-tdK"/>
                             <constraint firstAttribute="trailing" secondItem="sor-Ft-eVN" secondAttribute="trailing" constant="16" id="TUf-kC-N3n"/>
                             <constraint firstItem="qRY-iC-EpN" firstAttribute="bottom" secondItem="ljF-BV-sxN" secondAttribute="bottom" id="YHj-CL-DvC"/>
                             <constraint firstItem="ljF-BV-sxN" firstAttribute="top" secondItem="sor-Ft-eVN" secondAttribute="bottom" id="ZR3-WC-s3B"/>
-                            <constraint firstItem="T5M-nB-BBX" firstAttribute="top" secondItem="fA2-1F-UBK" secondAttribute="top" constant="32" id="lHB-ET-aAh"/>
-                            <constraint firstItem="qRY-iC-EpN" firstAttribute="trailing" secondItem="T5M-nB-BBX" secondAttribute="trailing" constant="16" id="mKO-Ia-4Kx"/>
-                            <constraint firstItem="T5M-nB-BBX" firstAttribute="leading" secondItem="qRY-iC-EpN" secondAttribute="leading" constant="16" id="umP-iE-Zkm"/>
+                            <constraint firstItem="qRY-iC-EpN" firstAttribute="top" secondItem="sor-Ft-eVN" secondAttribute="top" id="fWQ-QI-VtM"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Lista de Compras" image="square.and.pencil" catalog="system" id="BiY-ba-JXp"/>
+                    <navigationItem key="navigationItem" title="iBuy" id="rdA-kB-g0B">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9p6-IU-swU">
+                            <connections>
+                                <action selector="AddActionTapped:" destination="VCk-vE-Knl" id="woK-aG-rFl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="productSearchBar" destination="sor-Ft-eVN" id="Niv-zp-jQT"/>
                         <outlet property="tableView" destination="ljF-BV-sxN" id="jCQ-1K-TqV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S0C-8b-9hU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-210.1449275362319" y="-441.29464285714283"/>
+            <point key="canvasLocation" x="700" y="-441.29464285714283"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="z3h-k5-XmU">
@@ -113,33 +106,55 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="VCk-vE-Knl" kind="relationship" relationship="viewControllers" id="UCQ-1p-9V8"/>
-                        <segue destination="E9i-bT-bYf" kind="relationship" relationship="viewControllers" id="sE0-V4-gsX"/>
+                        <segue destination="77p-vF-eeU" kind="relationship" relationship="viewControllers" id="UCQ-1p-9V8"/>
+                        <segue destination="bgX-vm-csg" kind="relationship" relationship="viewControllers" id="sE0-V4-gsX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gh-7g-Oi5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1103" y="-138"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Lista de Compras-->
+        <scene sceneID="A8Z-jL-iwe">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iBuyApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="77p-vF-eeU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Lista de Compras" image="square.and.pencil" catalog="system" id="BiY-ba-JXp"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eDk-4m-THB">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VCk-vE-Knl" kind="relationship" relationship="rootViewController" id="OO5-hu-5pH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VXs-sr-Zne" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="842" y="-49"/>
+            <point key="canvasLocation" x="-210.1449275362319" y="-441.29464285714283"/>
+        </scene>
+        <!--Configurações-->
+        <scene sceneID="TG4-2B-wP4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bgX-vm-csg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Configurações" image="gearshape" catalog="system" id="wql-uN-H38"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vVb-uN-iNs">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="E9i-bT-bYf" kind="relationship" relationship="rootViewController" id="PZm-gW-oko"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JRb-L7-f64" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-210" y="167"/>
         </scene>
     </scenes>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
-        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
