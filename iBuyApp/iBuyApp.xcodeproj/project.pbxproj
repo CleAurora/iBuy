@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		42AC7A5E2558A7CD00242C19 /* ConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AC7A5D2558A7CD00242C19 /* ConfigurationViewController.swift */; };
+		42AC7A632558A92F00242C19 /* ConfigurationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AC7A622558A92F00242C19 /* ConfigurationViewCell.swift */; };
 		42BEDEFA254C3F9D00641233 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BEDEF9254C3F9D00641233 /* AppDelegate.swift */; };
 		42BEDEFC254C3F9D00641233 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42BEDEFB254C3F9D00641233 /* SceneDelegate.swift */; };
 		42BEDF01254C3F9D00641233 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42BEDEFF254C3F9D00641233 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		42AC7A5D2558A7CD00242C19 /* ConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewController.swift; sourceTree = "<group>"; };
+		42AC7A622558A92F00242C19 /* ConfigurationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationViewCell.swift; sourceTree = "<group>"; };
 		42BEDEF6254C3F9D00641233 /* iBuyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBuyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42BEDEF9254C3F9D00641233 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42BEDEFB254C3F9D00641233 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				42BEDF31254C43D400641233 /* ListViewCell.swift */,
 				42BEDF36254C451D00641233 /* Product.swift */,
 				42AC7A5D2558A7CD00242C19 /* ConfigurationViewController.swift */,
+				42AC7A622558A92F00242C19 /* ConfigurationViewCell.swift */,
 			);
 			path = iBuyApp;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				42BEDEFA254C3F9D00641233 /* AppDelegate.swift in Sources */,
 				42BEDEFC254C3F9D00641233 /* SceneDelegate.swift in Sources */,
 				42BEDF37254C451D00641233 /* Product.swift in Sources */,
+				42AC7A632558A92F00242C19 /* ConfigurationViewCell.swift in Sources */,
 				42AC7A5E2558A7CD00242C19 /* ConfigurationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

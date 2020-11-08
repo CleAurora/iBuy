@@ -15,14 +15,56 @@
                     <view key="view" contentMode="scaleToFill" id="mqi-VW-Zek">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UfW-bl-274">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ConfigurationViewCell" rowHeight="116" id="G3O-MT-96v" customClass="ConfigurationViewCell" customModule="iBuyApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="116"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G3O-MT-96v" id="gEH-qw-FUX">
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="116"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Tt-1s-XaX">
+                                                    <rect key="frame" x="36" y="27" width="323" height="62"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="2Tt-1s-XaX" secondAttribute="trailing" constant="16" id="IEp-7Y-2cX"/>
+                                                <constraint firstItem="2Tt-1s-XaX" firstAttribute="leading" secondItem="gEH-qw-FUX" secondAttribute="leadingMargin" constant="16" id="KId-67-TZN"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="2Tt-1s-XaX" secondAttribute="bottom" constant="16" id="qyf-ep-7KG"/>
+                                                <constraint firstItem="2Tt-1s-XaX" firstAttribute="top" secondItem="gEH-qw-FUX" secondAttribute="topMargin" constant="16" id="wwV-5u-3I4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="configurationLabel" destination="2Tt-1s-XaX" id="nt0-RC-DNH"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="iI9-m1-l7F"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UfW-bl-274" firstAttribute="leading" secondItem="iI9-m1-l7F" secondAttribute="leading" id="LMh-Mq-zyt"/>
+                            <constraint firstItem="iI9-m1-l7F" firstAttribute="bottom" secondItem="UfW-bl-274" secondAttribute="bottom" id="MFu-EH-oc7"/>
+                            <constraint firstItem="iI9-m1-l7F" firstAttribute="trailing" secondItem="UfW-bl-274" secondAttribute="trailing" id="OM7-65-OfU"/>
+                            <constraint firstItem="UfW-bl-274" firstAttribute="top" secondItem="iI9-m1-l7F" secondAttribute="top" id="mXg-oe-e6Y"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Configurações" id="wQ7-Pg-dp8"/>
+                    <connections>
+                        <outlet property="tableView" destination="UfW-bl-274" id="Ga3-GE-eeF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="epZ-51-ipP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="699" y="167"/>
+            <point key="canvasLocation" x="698.55072463768124" y="166.74107142857142"/>
         </scene>
         <!--iBuy-->
         <scene sceneID="NVm-AY-1Mc">
